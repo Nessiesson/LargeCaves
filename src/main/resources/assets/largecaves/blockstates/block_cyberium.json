@@ -1,0 +1,10 @@
+{
+    "forge_marker": 1,
+    "defaults": {
+     "model": "largecaves:block_cyberium"
+     },
+    "variants": {
+        "normal": [{}],
+        "inventory": [{}]
+    }
+}

@@ -1,0 +1,16 @@
+tile.BlockLavaMite.name=LavaMite
+tile.block_cyberium.name=Cyberium Block
+entity.nightmarecreeper.name=NightmareCreeper
+entity.lavamite.name=LavaMite
+death.attack.lavamite=A fiery little buggah
+blocks.sounds.beez=Beeez
+item.pick_cyberium.name=Cyberium Pick
+item.sword_cyberium.name=Cyberium Sword
+item.nugget_cyberium.name=Cyberium Nugget
+item.ingot_cyberium.name=Cyberium Ingot
+item.dust_cyberium.name=Cyberium Dust
+item.rod_obsidian.name=Obsidian Rod
+itemGroup.tabLargeCaves=Large Caves
+fluid.molten_cyberium.name=Molten Cyberium
+material.cyberium.name=Cyberium
+modifier.living.name=Dream Walker

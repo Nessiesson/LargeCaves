@@ -1,0 +1,16 @@
+[
+{
+  "modid": "largecaves",
+  "name": "LargeCaves",
+  "description": "Makes Minecraft Caves exceptionally large, fun and scary. ",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["CyborgJenn"],
+  "credits": "Thanks to all my Misfit friends for being there for me. I love you guys.",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]

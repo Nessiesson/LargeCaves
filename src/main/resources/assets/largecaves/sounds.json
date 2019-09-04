@@ -1,0 +1,10 @@
+{
+    "beez": {
+        "category": "master",
+        "subtitle": "blocks.sounds.beez",
+        "sounds": [{
+            "name": "largecaves:beez",
+            "stream": true
+        }]
+    }
+}

@@ -1,0 +1,24 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern":
+    [
+        " x ",
+        " x ",
+        " s "
+    ],
+    "key":
+    {
+        "x":
+        {
+            "item": "largecaves:ingot_cyberium" 
+        },
+        "s":
+        {
+            "item": "largecaves:rod_obsidian"
+        }
+    },
+    "result":
+    {
+        "item": "largecaves:sword_cyberium"
+    }
+}

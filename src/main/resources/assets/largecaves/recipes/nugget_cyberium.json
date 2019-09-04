@@ -1,0 +1,13 @@
+{
+    "type": "minecraft:crafting_shapeless",
+    "ingredients": [
+        {
+            "item": "largecaves:ingot_cyberium"
+        }
+    ],
+    "result":
+    {
+        "item": "largecaves:nugget_cyberium",
+        "count": 9
+    }
+}
