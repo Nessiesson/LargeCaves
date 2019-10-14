@@ -252,40 +252,41 @@ public class LargeCaveGen extends MapGenCaves
 		return false;
 	}
 	@Override
-	protected void recursiveGenerate(World world, int chunkX, int chunkZ, int p_151538_4_, int p_151538_5_, ChunkPrimer primer)
+	protected void recursiveGenerate(World world, int chunkX, int chunkZ, int originalX, int originalZ, ChunkPrimer primer)
 	{
-		int i1 = this.rand.nextInt(this.rand.nextInt(this.rand.nextInt(15) + 1) + 1);
+		int i1 = this.rand.nextInt(this.rand.nextInt(this.rand.nextInt(15) + 1) + 1);// 2 and 15
 
-		if (this.rand.nextInt(7) != 0)
+		if (this.rand.nextInt(7) != 0) //0 and 6 gives mostly zero 1 of 7 could be 2 to 15
 		{
 			i1 = 0;
 		}
 
-		for (int j1 = 0; j1 < i1; ++j1)
+		for (int j1 = 0; j1 < i1; ++j1)  // cave density
 		{
-			double d0 = (double)(chunkX * 16 + this.rand.nextInt(16));
-			double d1 = (double)this.rand.nextInt(this.rand.nextInt(120) + 8);
-			double d2 = (double)(chunkZ * 16 + this.rand.nextInt(16));
+			double blockPosX = (double)(chunkX * 16 + this.rand.nextInt(16));
+			double blockPosY = (double)this.rand.nextInt(this.rand.nextInt(120) + 8);
+			double blockPosZ = (double)(chunkZ * 16 + this.rand.nextInt(16));
 			int k1 = 1;
 
 			if (this.rand.nextInt(Config.largeNodeFrequency) == 0)
 			{
-				this.addRoom(this.rand.nextLong(), p_151538_4_, p_151538_5_, primer, d0, d1, d2);
+				this.addRoom(this.rand.nextLong(), originalX, originalZ, primer, blockPosX, blockPosY, blockPosZ);
 				k1 += this.rand.nextInt(4);
 			}
 
 			for (int l1 = 0; l1 < k1; ++l1)
 			{
-				float f = this.rand.nextFloat() * (float)Math.PI * 2.0F;
+				float circumference = this.rand.nextFloat() * (float)Math.PI * 2.0F; //rand = random radiace
+				
 				float f1 = (this.rand.nextFloat() - 0.5F) * 2.0F / 8.0F;
-				float f2 = this.rand.nextFloat() * 2.0F + this.rand.nextFloat();
+				float f2 = this.rand.nextFloat() * 2.0F + this.rand.nextFloat();  // between 0 and 3 more likely around 2.
 
 				if (this.rand.nextInt(Config.nodeFrequency) == 0)
 				{
 					f2 *= this.rand.nextFloat() * this.rand.nextFloat() * Config.nodeMultiplier + 1.0F;
 				}
 
-				this.addTunnel(this.rand.nextLong(), p_151538_4_, p_151538_5_, primer, d0, d1, d2, f2, f, f1, 0, 0, 1.0D);
+				this.addTunnel(this.rand.nextLong(), originalX, originalZ, primer, blockPosX, blockPosY, blockPosZ, f2, circumference, f1, 0, 0, 1.0D);
 			}
 		}
 	}
