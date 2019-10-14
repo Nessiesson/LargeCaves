@@ -13,6 +13,7 @@ import com.cyborgJenn.largeCaves.item.ModItems;
 import com.cyborgJenn.largeCaves.util.Config;
 import com.cyborgJenn.largeCaves.util.OreDict;
 import com.cyborgJenn.largeCaves.util.Reference;
+import com.cyborgJenn.largeCaves.world.CaveGenType2;
 import com.cyborgJenn.largeCaves.world.LargeCaveGen;
 import com.cyborgJenn.largeCaves.world.WorldGenerator;
 
@@ -22,6 +23,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
+import net.minecraft.world.gen.MapGenCaves;
 import net.minecraftforge.common.BiomeDictionary;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
@@ -37,7 +39,7 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 @Mod.EventBusSubscriber
 public class CommonProxy {
 
-	public static LargeCaveGen 		caveGen;
+	public static MapGenCaves caveGen;
 	public static SoundEvent BEEZ;
 	static ResourceLocation location;
 	public void preInit(FMLPreInitializationEvent event)
@@ -45,7 +47,11 @@ public class CommonProxy {
 		event.getModMetadata().version = Reference.VERSION;
 		Config.init(event.getSuggestedConfigurationFile());
 		ModCompat.preInitCompat();
-		caveGen = new LargeCaveGen(); 
+		if (Config.caveGenType == 1){
+			caveGen = new LargeCaveGen(); 
+		}else if (Config.caveGenType == 2){
+			caveGen = new CaveGenType2();
+		}
 		MinecraftForge.TERRAIN_GEN_BUS.register(new CyborgTerrainEventHandler()); 
 		MinecraftForge.EVENT_BUS.register(new CyborgEventHandler());
 		MinecraftForge.EVENT_BUS.register(new PlayerTickHandler());
