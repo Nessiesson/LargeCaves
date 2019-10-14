@@ -10,25 +10,30 @@ import net.minecraftforge.common.config.Property;
 
 public class Config {
 
-	public static double    NMCreeperHealth;
-	public static int       NMCreeperBoostTime;
-	public static int       NMFuseTime;
-	public static int       NMBlastRadius;
-	public static boolean   NMPotionEffect; 
-	public static boolean 	enableDebugging;
-	public static int 		largeNodeMultiplier;
-	public static int 		largeNodeFrequency;
-	public static int 		nodeMultiplier;
-	public static int 		nodeFrequency;
-	public static double 	caveTunnelSizeVar1;
-	public static double 	caveTunnelSizeVar2;
-	public static double 	caveVar3;
-	public static double 		miniDSpiCree;
-	public static int 		miniDWitch;
-	public static int[] dimsToGenerateCaves;
-	public static boolean shouldHideInBlock;
+	// Debug
+	public static boolean enableDebugging;
 	public static boolean enableCaveDebugging;
+	// Entity
+	public static double  NMCreeperHealth;
+	public static int     NMCreeperBoostTime;
+	public static int     NMFuseTime;
+	public static int     NMBlastRadius;
+	public static boolean NMPotionEffect;
+	public static boolean shouldHideInBlock;
 	public static boolean doRespectMobGriefing;
+	// Caves
+	public static int 	 largeNodeMultiplier;
+	public static int 	 largeNodeFrequency;
+	public static int 	 nodeMultiplier;
+	public static int 	 nodeFrequency;
+	public static double caveTunnelSizeVar1;
+	public static double caveTunnelSizeVar2;
+	public static double caveVar3;
+	public static int[]  dimsToGenerateCaves;
+	public static int    caveGenType;
+	// Mini Dungeon
+	public static double  miniDSpiCree;
+	public static int 	  miniDWitch;
 	
 	public static void init(File file) {
 		Configuration config = new Configuration(file);
@@ -56,13 +61,19 @@ public class Config {
 	{
 		String caveSettings = "Cave Settings";
 		config.addCustomCategoryComment(caveSettings, "Setting for Controlling the size and frequency of Caves");
+		// Version 1
 		largeNodeMultiplier = config.get(caveSettings, "Large Node Multiplier", 16, "MC is 5 by default. A larger number here gives largeNodes more girth").getInt();
 		largeNodeFrequency 	= config.get(caveSettings, "Large Node Frequency", 2, "MC is 4 by default. A lower number here makes them more frequent.").getInt();
 		nodeMultiplier 		= config.get(caveSettings, "Node Multiplier", 9, "MC is 3 by default. A larger number here gives Nodes more girth").getInt();
 		nodeFrequency 		= config.get(caveSettings, "Node Frequency", 8, "MC is 10 by default. A lower number here makes them more frequent.").getInt();
 		caveTunnelSizeVar1 	= config.getFloat("Tunnel_Var1", caveSettings, 4F, 0.5F, 100F, "MC is 0.5 by default. A larger number here means more variation in cave tunnel size.");
 		caveTunnelSizeVar2 	= config.getFloat("Tunnel_Var2", caveSettings, 8F, 0.5F, 100F, "MC is 0.5 by default. A larger number here means more variation in cave tunnel size.");
+		// Version 2
+		
+		
+		// Common
 		dimsToGenerateCaves = config.get(caveSettings, "cave", new int[]{0}, "Dimensions to generate caves in. DimID(int) on a new line.").getIntList();
+		caveGenType= config.get(caveSettings, "Cave Generator Type", 1, "1 = Standard, 2 = New").getInt();
 	}
 	private static void configDebugOptions(Configuration config){
 		String debug = "Dev Debug Options";
