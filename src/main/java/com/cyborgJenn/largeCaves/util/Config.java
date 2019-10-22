@@ -85,7 +85,7 @@ public class Config {
 	private static void configMiniDungeonOptions(Configuration config) {
 		String miniD = "Mini-Dungeon Options";
 		config.addCustomCategoryComment(miniD, "Changes Rarity of Creeper and Spider Mini-Dungeons. (0.0 to 1.0 % chance per chunk)");
-		miniDSpiCree = config.get(miniD, "Spider-Creeper",0.05).getDouble();
+		miniDSpiCree = config.get(miniD, "Spider-Creeper",0.04).getDouble();
 		miniDWitch   = config.get(miniD, "Witch", 50).getInt();
 	}
 	private static void configEntityTraits(Configuration config){

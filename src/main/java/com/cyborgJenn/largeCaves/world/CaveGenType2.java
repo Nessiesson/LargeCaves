@@ -41,13 +41,14 @@ public class CaveGenType2  extends MapGenCaves
 		
 	}
 	@Override
-	protected void addTunnel(long seed, int p_180702_3_, int p_180702_4_, ChunkPrimer primer, double p_180702_6_, double p_180702_8_, double p_180702_10_, float p_180702_12_, float p_180702_13_, float p_180702_14_, int p_180702_15_, int p_180702_16_, double p_180702_17_) {
+	protected void addTunnel(long seed, int originalX, int originalZ, ChunkPrimer primer, double p_180702_6_, double p_180702_8_, double p_180702_10_, float p_180702_12_, float p_180702_13_, float p_180702_14_, int p_180702_15_, int p_180702_16_, double p_180702_17_) {
 		
 	}
-	private void addRoom() {
+	@Override
+	protected void addRoom(long seed, int originalX, int originalZ, ChunkPrimer primer, double blockPosX, double blockPosY, double blockPosZ) {
 		
 	}
-	private void addLargeRoom() {
+	private void addLargeRoom(long seed, int originalX, int originalZ, ChunkPrimer primer) {
 		
 	}
 	/**
