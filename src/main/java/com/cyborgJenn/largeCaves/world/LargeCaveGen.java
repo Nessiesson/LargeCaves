@@ -35,7 +35,7 @@ public class LargeCaveGen extends MapGenCaves
 		if (Config.enableCaveDebugging){
 			LargeCaves.logger.info("Created Cave Room at:" + posX +", "+ posY +", "+ posZ);
 		}
-		if (posY >= 50) return;
+		if (posY >= 40) return;
 		this.addTunnel(seed, chunkX, chunkZ, chunkprimer, posX, posY, posZ, 1.0F + this.rand.nextFloat() * Config.largeNodeMultiplier, 0.0F, 0.0F, -1, -1, 0.5D);
 	}
 	//TODO Caverns. Very large room , deep in the world, very sporadic.
@@ -208,7 +208,7 @@ public class LargeCaveGen extends MapGenCaves
 											IBlockState iblockstate1 = chunkprimer.getBlockState(k2, l3, j3);
 											IBlockState iblockstate2 = (IBlockState)MoreObjects.firstNonNull(chunkprimer.getBlockState(k2, l3 + 1, j3), Blocks.AIR.getDefaultState());
 
-											if (isTopBlock(chunkprimer, k2, l3, j3, chunkX, chunkZ))
+											if (isTopBlock(chunkprimer, k2, l3, j3, chunkX, chunkZ) || isTopBlock(chunkprimer, k2, l3 + 1, j3, chunkX, chunkZ))
 											{
 												foundTop = true;
 											}
@@ -240,7 +240,9 @@ public class LargeCaveGen extends MapGenCaves
 			} else if (worldBlock.equals(Blocks.HARDENED_CLAY) || worldBlock.equals(Blocks.STAINED_HARDENED_CLAY) && isMesaTypeBiome(biome) ) {
 				return true;
 			} else {
-				return (worldBlock == Blocks.SAND || worldBlock == Blocks.GRAVEL) && blockStateUP.getMaterial() != Material.WATER; }
+				//return (worldBlock == Blocks.SAND || worldBlock == Blocks.GRAVEL) && blockStateUP.getMaterial() != Material.WATER;
+				return (worldBlock == Blocks.GRAVEL) && blockStateUP.getMaterial() != Material.WATER; 
+			}
 		}
 		return false;
 	}
@@ -264,7 +266,7 @@ public class LargeCaveGen extends MapGenCaves
 		for (int j1 = 0; j1 < i1; ++j1)  // cave density
 		{
 			double blockPosX = (double)(chunkX * 16 + this.rand.nextInt(16));
-			double blockPosY = (double)this.rand.nextInt(this.rand.nextInt(120) + 8);
+			double blockPosY = (double)this.rand.nextInt(this.rand.nextInt(84) + 8);
 			double blockPosZ = (double)(chunkZ * 16 + this.rand.nextInt(16));
 			int k1 = 1;
 
@@ -277,7 +279,7 @@ public class LargeCaveGen extends MapGenCaves
 			for (int l1 = 0; l1 < k1; ++l1)
 			{
 				float circumference = this.rand.nextFloat() * (float)Math.PI * 2.0F; //rand = random radiace
-				
+
 				float f1 = (this.rand.nextFloat() - 0.5F) * 2.0F / 8.0F;
 				float f2 = this.rand.nextFloat() * 2.0F + this.rand.nextFloat();  // between 0 and 3 more likely around 2.
 
@@ -329,8 +331,8 @@ public class LargeCaveGen extends MapGenCaves
 	 */
 	protected void digBlock(ChunkPrimer data, int x, int y, int z, int chunkX, int chunkZ, boolean foundTop, IBlockState state, IBlockState up)
 	{
+		if (foundTop) return;
 		net.minecraft.world.biome.Biome biome = world.getBiome(new BlockPos(x + chunkX * 16, 0, z + chunkZ * 16));
-		
 		if (this.canReplaceBlock(biome, state, up) || state.getBlock() == biome.topBlock.getBlock() || state.getBlock() == biome.fillerBlock.getBlock())
 		{
 			if (y < 10)
@@ -339,9 +341,8 @@ public class LargeCaveGen extends MapGenCaves
 			}
 			else
 			{
-				data.setBlockState(x, y, z, BLK_AIR); //Makes caves air
-			
-				if (foundTop && data.getBlockState(x, y - 1, z).getBlock() == biome.fillerBlock.getBlock())
+				data.setBlockState(x, y, z, BLK_AIR); //Makes caves air	
+				if (data.getBlockState(x, y - 1, z).getBlock() == biome.fillerBlock.getBlock())
 				{
 					data.setBlockState(x, y - 1, z, biome.topBlock.getBlock().getDefaultState());
 				}
