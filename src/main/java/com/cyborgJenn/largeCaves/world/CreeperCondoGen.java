@@ -40,7 +40,7 @@ public class CreeperCondoGen extends WorldGenerator {
 	public boolean generate(World world, Random rand, BlockPos pos) {
 		// check that each corner is one of the valid spawn blocks
 		int X = pos.getX();
-		int Y = pos.getY();
+		int Y = (pos.getY() + 6);
 		int Z = pos.getZ();
 		if (!LocationIsValidSpawn(world, X, Y, Z) || !LocationIsValidSpawn(world, X + 7, Y, Z) || !LocationIsValidSpawn(world, X + 7, Y, Z + 7) || !LocationIsValidSpawn(world, X, Y, Z + 7))
 		{
