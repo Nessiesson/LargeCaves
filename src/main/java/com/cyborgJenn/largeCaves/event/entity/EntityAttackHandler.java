@@ -17,14 +17,14 @@ public class EntityAttackHandler {
 		
 		if (event.getEntity() instanceof EntityNMCreeper){
 			
-			Iterable<ItemStack> equipment = event.getSource().getTrueSource().getEquipmentAndArmor();
-			
-			for (ItemStack stack : equipment){
-				
-				if (ItemStack.areItemsEqual(stack, new ItemStack(ModItems.CyberiumSword))){
-					System.out.println("NMCreeper hit with Cyberium sword");
-				}
-			}
+//			Iterable<ItemStack> equipment = event.getSource().getTrueSource().getEquipmentAndArmor();
+//			
+//			for (ItemStack stack : equipment){
+//				
+//				if (ItemStack.areItemsEqual(stack, new ItemStack(ModItems.CyberiumSword))){
+//					System.out.println("NMCreeper hit with Cyberium sword");
+//				}
+//			}
 		}	
 	}
 }
