@@ -1,21 +1,17 @@
 {
-    "type": "minecraft:crafting_shaped",
-    "pattern":
-    [
-        "   ",
-        "  s",
-        " s "
-    ],
-    "key":
-    {
-        "s":
-        {
-            "item": "minecraft:obsidian"
-        }
-    },
-    "result":
-    {
-        "item": "largecaves:rod_obsidian",
-        "count": 4
-    }
+	"type": "minecraft:crafting_shaped",
+	"pattern": [
+		"   ",
+		"  s",
+		" s "
+	],
+	"key": {
+		"s": {
+			"item": "minecraft:obsidian"
+		}
+	},
+	"result": {
+		"item": "largecaves:rod_obsidian",
+		"count": 4
+	}
 }

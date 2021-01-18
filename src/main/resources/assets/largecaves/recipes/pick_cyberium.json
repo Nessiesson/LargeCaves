@@ -1,24 +1,19 @@
 {
-    "type": "minecraft:crafting_shaped",
-    "pattern":
-    [
-        "xxx",
-        " s ",
-        " s "
-    ],
-    "key":
-    {
-        "x":
-        {
-            "item": "largecaves:ingot_cyberium" 
-        },
-        "s":
-        {
-            "item": "largecaves:rod_obsidian"
-        }
-    },
-    "result":
-    {
-        "item": "largecaves:pick_cyberium"
-    }
+	"type": "minecraft:crafting_shaped",
+	"pattern": [
+		"xxx",
+		" s ",
+		" s "
+	],
+	"key": {
+		"x": {
+			"item": "largecaves:ingot_cyberium"
+		},
+		"s": {
+			"item": "largecaves:rod_obsidian"
+		}
+	},
+	"result": {
+		"item": "largecaves:pick_cyberium"
+	}
 }

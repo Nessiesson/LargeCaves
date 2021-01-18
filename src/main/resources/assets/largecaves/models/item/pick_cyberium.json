@@ -1,6 +1,6 @@
 {
-    "parent":"largecaves:item/handheld",
-    "textures": {
-        "layer0":"largecaves:items/pick_cyberium"
-    }
+	"parent": "largecaves:item/handheld",
+	"textures": {
+		"layer0": "largecaves:items/pick_cyberium"
+	}
 }

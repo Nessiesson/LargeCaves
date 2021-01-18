@@ -1,20 +1,16 @@
 {
-    "type": "minecraft:crafting_shaped",
-    "pattern":
-    [
-        "xxx",
-        "xxx",
-        "xxx"
-    ],
-    "key":
-    {
-        "x":
-        {
-            "item": "largecaves:ingot_cyberium" 
-        }
-    },
-    "result":
-    {
-        "item": "largecaves:block_cyberium"
-    }
+	"type": "minecraft:crafting_shaped",
+	"pattern": [
+		"xxx",
+		"xxx",
+		"xxx"
+	],
+	"key": {
+		"x": {
+			"item": "largecaves:ingot_cyberium"
+		}
+	},
+	"result": {
+		"item": "largecaves:block_cyberium"
+	}
 }

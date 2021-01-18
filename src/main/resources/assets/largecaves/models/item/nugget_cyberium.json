@@ -1,6 +1,6 @@
 {
-    "parent":"largecaves:item/generic_item",
-    "textures": {
-        "layer0":"largecaves:items/nugget_cyberium"
-    }
+	"parent": "largecaves:item/generic_item",
+	"textures": {
+		"layer0": "largecaves:items/nugget_cyberium"
+	}
 }

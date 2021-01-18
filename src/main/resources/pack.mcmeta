@@ -1,7 +1,7 @@
 {
-    "pack": {
-        "description": "largecaves resources",
-        "pack_format": 3,
-        "_comment": "largecaves"
-    }
+	"pack": {
+		"description": "largecaves resources",
+		"pack_format": 6,
+		"_comment": "largecaves"
+	}
 }
